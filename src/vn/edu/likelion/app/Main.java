@@ -47,7 +47,9 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    courseService.add(listCourses, listTrainee);
+                    if(listCourses.size() == 5){
+                        System.out.println("Maximum of list course is five.");
+                    }else courseService.add(listCourses, listTrainee);
                     break;
                 case 2:
                     if (!listCourses.isEmpty()){
