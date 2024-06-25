@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Trainee extends InfoGeneral{
     private int age;
-    private String dateParticipate;
+    private String dateParticipate; // date of enroll
     private Course course;
 
     public Trainee() {}
@@ -31,16 +31,5 @@ public class Trainee extends InfoGeneral{
 
     public void setCourse(Course course) {
         this.course = course;
-    }
-
-    @Override
-    public String toString() {
-        return "Trainee{" +
-                "age=" + age +
-                ", dateParticipate=" + dateParticipate +
-                ", course=" + course +
-                ", id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
     }
 }

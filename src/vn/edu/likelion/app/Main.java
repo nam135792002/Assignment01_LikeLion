@@ -5,20 +5,20 @@ import vn.edu.likelion.entity.Trainee;
 import vn.edu.likelion.exception.NotFoundException;
 import vn.edu.likelion.service.CourseService;
 import vn.edu.likelion.service.TraineeService;
+import vn.edu.likelion.utils.Instant;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
-    public static CourseService courseService = new CourseService();
-    public static TraineeService traineeService = new TraineeService();
-    static List<Course> listCourses = new LinkedList<>();
-    static List<Trainee> listTrainee = new LinkedList<>();
-    static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
+
+        CourseService courseService = new CourseService();
+        TraineeService traineeService = new TraineeService();
+        List<Course> listCourses = new LinkedList<>();
+        List<Trainee> listTrainee = new LinkedList<>();
+        Scanner sc = new Scanner(System.in);
 
         while (true) {
             System.out.println(">>MENU..");
@@ -46,13 +46,13 @@ public class Main {
             }
 
             switch (choice) {
-                case 1:
-                    if(listCourses.size() == 5){
+                case 1 -> {
+                    if (listCourses.size() == Instant.MAXIMUM_COURSE) {
                         System.out.println("Maximum of list course is five.");
-                    }else courseService.add(listCourses, listTrainee);
-                    break;
-                case 2:
-                    if (!listCourses.isEmpty()){
+                    } else courseService.add(listCourses, listTrainee);
+                }
+                case 2 -> {
+                    if (!listCourses.isEmpty()) {
                         System.out.print("Enter the ID of course: ");
                         String courseId = sc.nextLine();
                         try {
@@ -60,19 +60,19 @@ public class Main {
                         } catch (NotFoundException ex) {
                             System.out.println(ex.getMessage());
                         }
-                    }else{
+                    } else {
                         System.out.println("List of course is empty");
                     }
-                    break;
-                case 3:
-                    if (!listCourses.isEmpty()){
+                }
+                case 3 -> {
+                    if (!listCourses.isEmpty()) {
                         courseService.printList(listCourses);
-                    }else{
+                    } else {
                         System.out.println("List of course is empty");
                     }
-                    break;
-                case 4:
-                    if (!listCourses.isEmpty()){
+                }
+                case 4 -> {
+                    if (!listCourses.isEmpty()) {
                         System.out.print("Enter the ID of course: ");
                         String courseIdToUpdate = sc.nextLine();
                         try {
@@ -80,12 +80,12 @@ public class Main {
                         } catch (NotFoundException ex) {
                             System.out.println(ex.getMessage());
                         }
-                    }else{
+                    } else {
                         System.out.println("List of course is empty");
                     }
-                    break;
-                case 5:
-                    if (!listCourses.isEmpty()){
+                }
+                case 5 -> {
+                    if (!listCourses.isEmpty()) {
                         System.out.print("Enter the ID of course: ");
                         String courseIdToDelete = sc.nextLine();
                         try {
@@ -93,26 +93,26 @@ public class Main {
                         } catch (NotFoundException ex) {
                             System.out.println(ex.getMessage());
                         }
-                    }else{
+                    } else {
                         System.out.println("List of course is empty");
                     }
-                    break;
-                case 6:
-                    if (!listCourses.isEmpty()){
+                }
+                case 6 -> {
+                    if (!listCourses.isEmpty()) {
                         traineeService.add(listCourses, listTrainee);
-                    }else{
+                    } else {
                         System.out.println("List of course is empty");
                     }
-                    break;
-                case 7:
-                    if(!listTrainee.isEmpty()){
+                }
+                case 7 -> {
+                    if (!listTrainee.isEmpty()) {
                         traineeService.printList(listTrainee);
-                    }else{
+                    } else {
                         System.out.println("List of trainee is empty");
                     }
-                    break;
-                case 8:
-                    if(!listTrainee.isEmpty()){
+                }
+                case 8 -> {
+                    if (!listTrainee.isEmpty()) {
                         System.out.print("Enter the ID of trainee: ");
                         String traineeIdToUpdate = sc.nextLine();
                         try {
@@ -120,13 +120,12 @@ public class Main {
                         } catch (NotFoundException ex) {
                             System.out.println(ex.getMessage());
                         }
-                    }else{
+                    } else {
                         System.out.println("List of trainee is empty");
                     }
-
-                    break;
-                case 9:
-                    if(!listTrainee.isEmpty()){
+                }
+                case 9 -> {
+                    if (!listTrainee.isEmpty()) {
                         System.out.print("Enter the ID of trainee: ");
                         String traineeIdToDelete = sc.nextLine();
                         try {
@@ -134,15 +133,15 @@ public class Main {
                         } catch (NotFoundException ex) {
                             System.out.println(ex.getMessage());
                         }
-                    }else{
+                    } else {
                         System.out.println("List of trainee is empty");
                     }
-                    break;
-                case 10:
+                }
+                case 10 -> {
                     System.out.println("Exiting the program.");
                     return; // Exit the program
-                default:
-                    System.out.println("Invalid choice. Enter a number between 1 and 10.");
+                }
+                default -> System.out.println("Invalid choice. Enter a number between 1 and 10.");
             }
 
             System.out.println("\n-------------------------**----------------------\n");

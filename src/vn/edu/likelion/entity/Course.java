@@ -1,9 +1,8 @@
 package vn.edu.likelion.entity;
 
 public class Course extends InfoGeneral{
-
     private int amount;
-    private boolean status;
+    private boolean status; // status is open or close
     private int registered;
 
     public Course(){}
@@ -30,15 +29,5 @@ public class Course extends InfoGeneral{
 
     public void setRegistered(int registered) {
         this.registered = registered;
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "amount=" + amount +
-                ", status=" + status +
-                ", id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
     }
 }
